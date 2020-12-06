@@ -5,7 +5,8 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 module.exports = env => ({
   devtool: 'source-map',
   output: {
-    filename: '[name].[contenthash].js',
+    filename: '[name].js',
+    //  filename: '[name].[contenthash].js',
   },
   optimization: {
     moduleIds: 'hashed',
@@ -50,8 +51,10 @@ module.exports = env => ({
       },
     }),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
-      chunkFilename: '[name].[id].[contenthash].css',
+      filename: '[name].css',
+      chunkFilename: '[name].css',
+      //   filename: '[name].[contenthash].css',
+      // chunkFilename: '[name].[id].[contenthash].css',
     }),
     new OptimizeCssAssetsPlugin({}),
   ],
